@@ -65,15 +65,6 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 #------------------------------------------------------------------------------
-# The PGI compiler can not find any cap routines in their library.
-# This is due to how it labels subroutines within a modules.
-# For example the subroutine b() in the moduel a(), gets named a_b.
-# GCC and Intel do NOT do this, it is name simply as b.
-if ("${CMAKE_Fortran_COMPILER_ID}" STREQUAL "PGI")
-    message(STATUS "WARNING: PGI compiler is not fully ISO_C compliant; working solution involves a hack pgifix.py")
-endif()
-
-#------------------------------------------------------------------------------
 # Request a static build
 option(BUILD_SHARED_LIBS "Build a static library" OFF)
 
